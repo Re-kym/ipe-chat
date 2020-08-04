@@ -10,21 +10,26 @@
         height: calc(100vh - 160px);
         background-color: $back-color;
         .message-form {
-            padding: 0 20px;
-            max-height: calc(100vh - 170px);
+            padding: 0 80px;
+            height: calc(100vh - 160px);
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             .message-container {
                 display: flex;
+                justify-content: space-between;
                 padding: 0 10px;     
                 height: 100px;
                 background-color: white;
-                overflow-y: auto;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
                 .message-body {
                     width: 70%;
                     ul {
                         li {
                             display: inline-flex;
-                            a{
+                            p{
                                 padding: .7em 2em;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -35,28 +40,33 @@
                 }
                 .editor-button {
                     display: flex;
-                    padding: 0 20px;
-                    max-height: calc(100vh - 170px);
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
                     overflow-y: auto;
-                    align-items: center;            
                     ul {
-                        padding: 0 10px;
-                        height: 50px;
                         display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
                         flex-direction: column;
+                        justify-content: space-between;
+                        height: 90px;
                         li {
-                            background-color: cornflowerblue;
+                            display: flex;
+                            justify-content: center;
+                            background-color: rgb(143, 219, 255);
                             border-radius: 5px;
                             margin-right: 2em;
-                            text-align: center;
-                            width: 8em;
-                            a{
-                                padding: .7em 3em;
-                                color: indigo;
+                            width: 10em;
+                            height: 40px;
+                            p{
+                                line-height: 40px;
                                 font-weight: bold;
+                                font-size: 14pt;
+                                display: block;
+                                color: rgb(24, 123, 153);
                             }
+                        &:hover {
+                            opacity: 0.7;
+                        }
                         }
                     }
                 }
@@ -65,8 +75,32 @@
     }
     .chat-form {
         height: 80px;
-        padding: 20px;
+        padding: 10px;
         background-color: $sub-color;
-
+        .form{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 20px;
+            background-color: $sub-color;
+            input[type="text"]{
+                width: 80%;
+                height: 60px;
+            }
+            input[type="submit"]{
+                width: 100px;
+                height: 50px;
+                border-radius : 5%;          /* 角丸       */
+                font-weight: bold;
+                font-size     : 12pt;        /* 文字サイズ */
+                text-align    : center;      /* 文字位置   */
+                background    : #000066;     /* 背景色     */
+                color         : #ffffff;     /* 文字色     */
+                &:hover {
+                    opacity: 0.7;
+                }    
+            }
+        }
     }
 }
