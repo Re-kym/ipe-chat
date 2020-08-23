@@ -1,15 +1,16 @@
 <div class="main">
     <div class="chat">
         <div class="message-form">
+        <% unless @messages.blank? %>
+        <% @messages.each do |message| %>
             <div class="message-container">
-             <% unless @messages.blank? %>
                 <div class="message-body">
                     <ul>
                        <li><p>ユーザー名</p></li>
                         <span>
-                        <%= @message.created_at.strftime("%Y/%m/%d(%a) %H:%M") %>
+                        <%= message.created_at.strftime("%Y/%m/%d(%a) %H:%M") %>
                         </span>
-                        <p><%= @message.content %></p>
+                        <p><%= message.content %></p>
                     </ul>
                 </div>
 
@@ -20,12 +21,13 @@
                     </ul>
                 </div>
             </div>
-            <% else %>
+            <% end %>
+         <% else %>
             <div class="message-body">
             <p>No message yet.</p>
             </div>
-            <% end %>
-        </div>
+         <% end %>
+         </div>
     </div>
     
     <div class="chat-form">
