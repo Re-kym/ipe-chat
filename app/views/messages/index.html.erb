@@ -16,8 +16,8 @@
 
                 <div class="editor-button">
                     <ul>
-                        <li><p>edit</p></li>
-                        <li><p>delete</p></li>
+                        <li><%= link_to "edit", messages_edit_path(message.id), class: "editor-button" %></li>
+                        <li><%= link_to "delete", messages_destroy_path(message.id), :method => :delete, class: "delete-button" %></li>
                     </ul>
                 </div>
             </div>
@@ -31,10 +31,11 @@
     </div>
     
     <div class="chat-form">
+        <%= form_with model: @message, url: messages_create_path, id: "new_message", local: true do |f| %>
         <div class="form">
-            <input type="text" name="入力欄" maxlength="1000">
-            <input type="submit" value="SEND" class="button">
+            <%= f.text_field :content, id: "chat-form" %>
+            <%= f.submit "SEND" %>
         </div>
-
+        <% end %>
     </div>
 </div>

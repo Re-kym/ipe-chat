@@ -11,7 +11,7 @@
 
   <body>
       <header>
-        <div>
+        <div class="top-icon">
           <a href="/">
            <img src="/assets/logo_grey.png" alt="ipeロゴ">
           </a>
@@ -24,6 +24,10 @@
        </ul>
 
       </header>
+      <% if notice%>
+        <p class="flash"><%= notice%></p>
+      <% end %>
+
       <%= yield %>
   </body>
 </html>
