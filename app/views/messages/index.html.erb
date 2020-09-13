@@ -2,26 +2,28 @@
     <div class="chat">
         <div class="message-form">
         <% unless @messages.blank? %>
-        <% @messages.each do |message| %>
+          <% @messages.each do |message| %>
             <div class="message-container">
                 <div class="message-body">
                     <ul>
-                       <li><p>ユーザー名</p></li>
+                       <li><%= message.user.name %></li>
                         <span>
                         <%= message.created_at.strftime("%Y/%m/%d(%a) %H:%M") %>
                         </span>
                         <p><%= message.content %></p>
                     </ul>
                 </div>
-
+                
+                <% if current_user.id == message.user_id %>
                 <div class="editor-button">
                     <ul>
-                        <li><%= link_to "edit", messages_edit_path(message.id), class: "editor-button" %></li>
-                        <li><%= link_to "delete", messages_destroy_path(message.id), :method => :delete, class: "delete-button" %></li>
+                     <li><%= link_to "edit", messages_edit_path(message.id), class: "editor-button" %></li>
+                     <li><%= link_to "delete", messages_destroy_path(message.id), :method => :delete, class: "delete-button" %></li>  
                     </ul>
                 </div>
+                <% end %>
             </div>
-            <% end %>
+          <% end %>
          <% else %>
             <div class="message-body">
             <p>No message yet.</p>
